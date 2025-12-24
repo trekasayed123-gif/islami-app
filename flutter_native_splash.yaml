@@ -1,6 +1,6 @@
 flutter_native_splash:
   # This package generates native code to customize Flutter's default white native splash screen
-  # with background color and splash image.
+  # with background color and splash images.
   # Steps to make this work:
   # 1. Customize the parameters below.
   # 2. run the following command in the terminal:
@@ -50,7 +50,7 @@ flutter_native_splash:
   # general background_image for all platform (except android 12+)
   # if you specify this [required] background_image, then you should comment the
   # [required] color in previous section. select one, they cant work together.
-  background_image:      "asset/image/Splash Screen.png" #========[REQUIRED]============
+  background_image:      "assets/images/Splash Screen.png" #========[REQUIRED]============
   #background_image_dark: "assets/dark-background.png"
   # platform-specific background_image. will override general background_image if active:
   #background_image_android:      "assets/background-android.png"
@@ -60,12 +60,12 @@ flutter_native_splash:
   #background_image_web:          "assets/background-web.png"
   #background_image_dark_web:     "assets/dark-background-web.png"
 
-  # general image for all platform (except android 12+):
-  # allows you to specify an image used in the splash screen. It must be a
+  # general images for all platform (except android 12+):
+  # allows you to specify an images used in the splash screen. It must be a
   # png file and should be sized for 4x pixel density.
-  image:               asset/image/OBJECTS.png
+  image:               assets/images/OBJECTS.png
   #image_dark:          assets/splash-invert.png
-  # platform-specific image. will override general image if active:
+  # platform-specific images. will override general images if active:
   #image_android:       assets/splash-android.png
   #image_dark_android:  assets/splash-invert-android.png
   #image_ios:           assets/splash-ios.png
@@ -73,10 +73,10 @@ flutter_native_splash:
   #image_web:           assets/splash-web.gif
   #image_dark_web:      assets/splash-invert-web.gif
 
-  # image alignment (default center if not specified, or speccified something else):
+  # images alignment (default center if not specified, or speccified something else):
   #android_gravity: center       # bottom, center, center_horizontal, center_vertical,
   # clip_horizontal, clip_vertical, end, fill, fill_horizontal, fill_vertical, left, right, start, top. could also be a combination like `android_gravity: fill|clip_vertical`
-  # This will fill the width while maintaining the image's vertical aspect ratio.
+  # This will fill the width while maintaining the images's vertical aspect ratio.
   # visit https://developer.android.com/reference/android/view/Gravity
   #ios_content_mode: center      # scaleToFill, scaleAspectFit, scaleAspectFill,
   # center, top, bottom, left, right, topLeft, topRight, bottomLeft, or bottomRight.
@@ -84,7 +84,7 @@ flutter_native_splash:
   #web_image_mode: center        # center, contain, stretch, cover
 
   # general branding for all platform (except android 12+):
-  # allows you to specify an image used as branding in the splash screen. should be png.
+  # allows you to specify an images used as branding in the splash screen. should be png.
   #branding:      assets/dart.png
   #branding_dark: assets/dart_dark.png
   # platform-specific branding. will override general branding if active:
@@ -141,8 +141,8 @@ flutter_native_splash:
     # Please note that the splash screen will be clipped to a circle on the center of the screen.
     # with background: 960×960 px (fit within circle 640px in diameter)
     # without background: 1152×1152 px (fit within circle 768px in diameter)
-    # ensure that the most important design elements of your image are placed within a circular area
-    image: asset/image/OBJECTS.png
+    # ensure that the most important design elements of your images are placed within a circular area
+    image: assets/images/OBJECTS.png
     # image_dark: assets/images/logo/logo-splash2.png
 
     # center-logo background color
@@ -150,6 +150,6 @@ flutter_native_splash:
     # icon_background_color_dark: "#eeeeee"
 
     # branding:
-    # The branding image dimensions must be 800x320 px.
-    branding:     asset/image/route_logo.png
+    # The branding images dimensions must be 800x320 px.
+    branding:     assets/images/route_logo.png
     #branding_dark: assets/dart_dark.png
