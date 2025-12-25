@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:islami/Quran_tab.dart';
+import 'package:islami/hadith_tab.dart';
+import 'package:islami/radio_tab.dart';
+import 'package:islami/sebha_tab.dart';
+import 'package:islami/time_tab.dart';
 
 class home extends StatefulWidget {
   static const routName = "home";
@@ -15,6 +20,7 @@ class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0XFF202020),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.black,
@@ -109,7 +115,31 @@ class _homeState extends State<home> {
             label: "time",
           ),
         ],
+
+      ),
+      body: Stack(
+        children: [
+
+          tabs[index],
+          Container(
+           child: Image.asset("assets/images/Group 31.png"),
+          ),
+
+
+        ],
+
+
       ),
     );
   }
 }
+List<Widget> tabs=[
+QuranTab(),
+
+  HadithTab(),
+  SebhaTab(),
+  RadioTab(),
+  TimeTab(),
+
+
+];
