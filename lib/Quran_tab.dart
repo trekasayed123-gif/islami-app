@@ -1,6 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:islami/Sura_details.dart';
 import 'package:islami/suraItem.dart';
+
+import 'sura_model.dart';
 
 class QuranTab extends StatelessWidget {
   QuranTab({super.key});
@@ -377,7 +379,7 @@ class QuranTab extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
               ),
-              cursorColor: Color(0XFFE2BE7Ff),
+              cursorColor: Color(0XFFE2BE7F),
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(13),
@@ -425,10 +427,10 @@ class QuranTab extends StatelessWidget {
 
               itemBuilder: (context, index) {
                 return Container(
-padding: EdgeInsets.all(17),
+                  padding: EdgeInsets.all(17),
                   decoration: BoxDecoration(
-                      color: Color(0xffE2BE7F),
-                    borderRadius: BorderRadius.circular(20)
+                    color: Color(0xffE2BE7F),
+                    borderRadius: BorderRadius.circular(20),
                   ),
 
                   height: 180,
@@ -442,16 +444,33 @@ padding: EdgeInsets.all(17),
                           mainAxisSize: MainAxisSize.min,
 
                           children: [
-                            Text(englishQuranSurahs[index],style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                            Text(arabicAuranSuras[index],style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold)),
-                            Text("${AyaNumber[index]} Verses ",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold)),
+                            Text(
+                              englishQuranSurahs[index],
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              arabicAuranSuras[index],
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              "${AyaNumber[index]} Verses ",
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ],
                         ),
                       ),
                       Expanded(
                         child: Image.asset("assets/images/img_most_recent.png"),
                       ),
-
                     ],
                   ),
                 );
@@ -472,13 +491,29 @@ padding: EdgeInsets.all(17),
               separatorBuilder: (context, index) =>
                   Divider(color: Colors.white, indent: 44, endIndent: 44),
               padding: EdgeInsets.zero,
-              itemBuilder: (context, index) => Suraitem(
-                nameAR: arabicAuranSuras[index],
-                nameEG: englishQuranSurahs[index],
+              itemBuilder: (context, index) => InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, SuraDetails.routName
+                      ,
+                    arguments: SuraModel(
+                        nameAR:arabicAuranSuras[index],
+                        nameEG:englishQuranSurahs[index],
+                        index:index,
+                        versesCount:int.parse(AyaNumber[index])
 
-                versesCount: int.parse(AyaNumber[index]),
+                    )
+                  );
 
-                index: index + 1,
+                },
+                child: Suraitem(
+                  nameAR: arabicAuranSuras[index],
+                  nameEG: englishQuranSurahs[index],
+
+
+                  versesCount: int.parse(AyaNumber[index]),
+
+                  index: index + 1,
+                ),
               ),
               itemCount: arabicAuranSuras.length,
             ),
